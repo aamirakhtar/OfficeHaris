@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+</head>
+<body>
+    <div>
+        <form method="post">
+            @{
+                List<Department> departments = ViewBag.departments;
+
+                List<SelectListItem> lstDepartments = departments.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }).ToList();
+            }
+
+            <label>Name</label> @Html.TextBox("name") <br />
+            <label>Age</label> @Html.TextBox("age") <br />
+            <label>Department</label> @Html.DropDownList("departmentId", lstDepartments) <br />
+            <label>Male</label> @Html.RadioButton("gender", "male")
+            <label>Female</label> @Html.RadioButton("gender", "female") <br />
+            <label>Designation</label> @Html.TextBox("designation") <br />
+            <label>Address</label> @Html.TextBox("address") <br />
+
+            <input value="Save" type="submit" /> <br />
+
+            <a href="/Employee">Employee List</a>
+        </form>
+    </div>
+</body>
+</html>

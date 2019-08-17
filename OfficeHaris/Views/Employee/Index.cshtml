@@ -1,0 +1,41 @@
+﻿@{
+    Layout = null;
+    //List<Employee> employees = (List<Employee>)ViewData["employees"];
+    List<Employee> employees = ViewBag.employees;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        <table>
+            <tr>
+                <td>Name</td>
+                <td>DepartmentId</td>
+                <td>Age</td>
+                <td>Designation</td>
+                <td>Address</td>
+                <td>Gender</td>
+            </tr>
+            @foreach (Employee emp in employees)
+            {
+                <tr>
+                    <td>@emp.Name</td>
+                    <td>@emp.DepartmentId</td>
+                    <td>@emp.Age</td>
+                    <td>@emp.Designation</td>
+                    <td>@emp.Address</td>
+                    <td>@emp.Gender</td>
+                </tr>
+            }
+
+            <a href="/Employee/CreateEmployee">Create Employee</a>
+        </table>
+    </div>
+</body>
+</html>
