@@ -13,7 +13,7 @@ namespace OfficeHaris.Controllers
         {
             OfficeEntities oe = new OfficeEntities();
             ViewData["employees"] = oe.Employees.ToList();
-            //ViewBag.employees = oe.Employees;
+
             return View();
         }
 
@@ -38,6 +38,8 @@ namespace OfficeHaris.Controllers
             OfficeEntities oe = new OfficeEntities();
             oe.Employees.Add(employee);
             oe.SaveChanges();
+
+            TempData["success"] = "Record inserted.";
 
             return RedirectToAction("Index");
         }

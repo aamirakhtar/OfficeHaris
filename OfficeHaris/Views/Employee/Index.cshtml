@@ -1,6 +1,4 @@
 ﻿@{
-    Layout = null;
-    //List<Employee> employees = (List<Employee>)ViewData["employees"];
     List<Employee> employees = ViewBag.employees;
 }
 
@@ -13,6 +11,7 @@
 </head>
 <body>
     <div>
+        <label>@TempData["success"]</label> <br />
         <table>
             <tr>
                 <td>Name</td>

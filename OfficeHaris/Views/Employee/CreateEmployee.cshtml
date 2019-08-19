@@ -1,5 +1,4 @@
 ﻿@{
-    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -11,6 +10,7 @@
 </head>
 <body>
     <div>
+        @ViewBag.success
         <form method="post">
             @{
                 List<Department> departments = ViewBag.departments;
