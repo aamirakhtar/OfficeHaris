@@ -1,6 +1,4 @@
-﻿@{
-}
-
+﻿@model Employee
 <!DOCTYPE html>
 
 <html>
@@ -15,19 +13,19 @@
             @{
                 List<Department> departments = ViewBag.departments;
 
-                List<SelectListItem> lstDepartments = departments.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }).ToList();
+                List<SelectListItem> departmentItems = departments.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }).ToList();
             }
 
-            <label>Name</label> @Html.TextBox("name") <br />
-            <label>Age</label> @Html.TextBox("age") <br />
-            <label>Department</label> @Html.DropDownList("departmentId", lstDepartments) <br />
-            <label>Male</label> @Html.RadioButton("gender", "male")
-            <label>Female</label> @Html.RadioButton("gender", "female") <br />
-            <label>Designation</label> @Html.TextBox("designation") <br />
-            <label>Address</label> @Html.TextBox("address") <br />
+            <label>Name</label> @Html.TextBoxFor(m => m.Name) <br />
+            <label>Age</label> @Html.TextBoxFor(m => m.Age) <br />
+            <label>Department</label> @Html.DropDownListFor(m => m.DepartmentId, departmentItems) <br />
+            <label>Male</label> @Html.RadioButtonFor(m => m.Gender, "male")
+            <label>Female</label> @Html.RadioButtonFor(m => m.Gender, "female") <br />
+            <label>Designation</label> @Html.TextBoxFor(m => m.Designation) <br />
+            <label>Address</label> @Html.TextBoxFor(m => m.Address) <br />
 
             <input value="Save" type="submit" /> <br />
-
+            
             <a href="/Employee">Employee List</a>
         </form>
     </div>

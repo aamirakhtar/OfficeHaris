@@ -13,7 +13,8 @@ namespace OfficeHaris
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
-            routes.MapRoute("IndexSubmit", "IndexSubmit", new { controller = "Home", action = "IndexSubmit", id = UrlParameter.Optional });
+            //routes.MapRoute("EditEmployee", "EditEmployee", new { controller = "Employee", action = "EditEmployee", id = UrlParameter.Optional });
+            //routes.MapRoute("CreateEmployee", "CreateEmployee", new { controller = "Employee", action = "CreateEmployee", id = UrlParameter.Optional });
 
             routes.MapRoute(
                 name: "Default",

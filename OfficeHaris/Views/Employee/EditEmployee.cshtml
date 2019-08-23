@@ -1,0 +1,40 @@
+﻿@model Employee
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+</head>
+<body>
+    <div>
+        @if (Model.Id != 0)
+        {
+            <form method="post">
+                @{
+                    List<Department> departments = ViewBag.departments;
+
+                    List<SelectListItem> departmentItems = departments.Select(d => new SelectListItem() { Value = d.Id.ToString(), Text = d.Name }).ToList();
+                }
+
+                @Html.HiddenFor(m => m.Id)
+                <label>Name</label> @Html.TextBoxFor(m => m.Name) <br />
+                <label>Age</label> @Html.TextBoxFor(m => m.Age) <br />
+                <label>Department</label> @Html.DropDownListFor(m => m.DepartmentId, departmentItems) <br />
+                <label>Male</label> @Html.RadioButtonFor(m => m.Gender, "male")
+                <label>Female</label> @Html.RadioButtonFor(m => m.Gender, "female") <br />
+                <label>Designation</label> @Html.TextBoxFor(m => m.Designation) <br />
+                <label>Address</label> @Html.TextBoxFor(m => m.Address) <br />
+
+                <input value="Save" type="submit" /> <br />
+
+                <a href="/Employee">Employee List</a>
+            </form>
+        }
+        else
+        {
+            <h1>Record not found.</h1>
+        }
+    </div>
+</body>
+</html>

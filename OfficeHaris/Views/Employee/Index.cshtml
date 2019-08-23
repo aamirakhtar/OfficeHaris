@@ -1,5 +1,7 @@
-﻿@{
-    List<Employee> employees = ViewBag.employees;
+﻿@model List<Employee>
+@{
+    //List<Employee> employees = ViewBag.employees;
+    List<Employee> employees = Model;
 }
 
 <!DOCTYPE html>
@@ -14,22 +16,29 @@
         <label>@TempData["success"]</label> <br />
         <table>
             <tr style="font-weight: bold;">
+                <td width="5%">Id</td>
                 <td width="20%">Name</td>
-                <td width="20%">DepartmentId</td>
-                <td width="20%">Age</td>
-                <td width="20%">Designation</td>
+                <td width="5%">DepartmentId</td>
+                <td width="10%">Age</td>
+                <td width="10%">Designation</td>
                 <td width="20%">Address</td>
-                <td>Gender</td>
+                <td width="5%">Gender</td>
+                <td width="10%"></td>
             </tr>
             @foreach (Employee emp in employees)
             {
-                <tr>
+                <tr style="border-bottom: dashed; border-width: thin">
+                    <td>@emp.Id</td>
                     <td>@emp.Name</td>
                     <td>@emp.DepartmentId</td>
                     <td>@emp.Age</td>
                     <td>@emp.Designation</td>
                     <td>@emp.Address</td>
                     <td>@emp.Gender</td>
+                    <td>
+                        <a href="/Employee/EditEmployee?employee_id=@emp.Id">Edit</a> |
+                        <a href="/Employee/DeleteEmployee?employee_id=@emp.Id">Delete</a>
+                    </td>
                 </tr>
             }
 
